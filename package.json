@@ -4,9 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.21",
+    "@mui/styled-engine": "^5.15.14",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "styled-components": "^6.1.11"
+    "react-router-dom": "^6.24.0",
+    "styled-components": "^6.1.11",
+    "styled-reset": "^4.5.2"
   },
   "scripts": {
     "build": "webpack build --config ./webpack.config.js",
@@ -29,5 +36,8 @@
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
+  },
+  "alias": {
+    "@mui/styled-engine": "@mui/styled-engine-sc"
   }
 }

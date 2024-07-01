@@ -9,7 +9,7 @@ function useViewport() {
   const handleResize = () => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
-    setIsMobile(window.innerWidth <= 768 || window.outerWidth <= 768);
+    setIsMobile(window.innerWidth <= 600 || window.outerWidth <= 600);
   };
 
   useLayoutEffect(() => {

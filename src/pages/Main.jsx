@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import useViewport from './hooks/useViewPort';
+import useViewport from '../hooks/useViewPort';
 
 const Text = styled.p`
   font-size: ${props => props.fontSize}px;

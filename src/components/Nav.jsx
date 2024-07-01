@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,11 +17,18 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import useViewport from '../hooks/useViewPort';
 import Container from '@mui/material/Container';
-import styled from 'styled-components';
 
 const drawerWidth = 240;
-const navItems = ['K망 요금제', 'L망 요금제', '개통방법', '상담문의'];
-
+const navItems = [
+  { label: 'K망 요금제', path: '/KTpaymentsystem' },
+  { label: 'L망 요금제', path: '/LGpaymentsystem' },
+  { label: '개통방법', path: '/open-cellphone' },
+  { label: '상담 문의', path: '/chat' },
+];
+const Logo = styled.img`
+  width: 120px;
+  height: 100%;
+`;
 function DrawerAppBar(props) {
   const { isMobile } = useViewport();
   const { window } = props;
@@ -32,15 +40,15 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography variant="h6" href="/" sx={{ my: 2 }}>
         앤탤레콤
       </Typography>
       <Divider />
       <List>
         {navItems.map(item => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+          <ListItem key={item.label} disablePadding>
+            <ListItemButton href={item.path} sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -51,13 +59,13 @@ function DrawerAppBar(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box justifyContent="center" sx={{ display: 'flex' }}>
+    <Box justifyContent="center" sx={{ display: 'flex', bgcolor: 'white' }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{ bgcolor: '#fff', boxShadow: 'none', borderBottom: '1px solid #e0e0e0' }}>
         <Container maxWidth="lg">
           <Toolbar>
             <IconButton
-              color="inherit"
+              color="black"
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
@@ -65,13 +73,17 @@ function DrawerAppBar(props) {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-              앤텔레콤
+            <Typography
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' }, alignItems: 'center', justifyContent: 'start' }}
+            >
+              <Logo src="../assets/image/logo.png" alt="앤텔레콤" href="/" />
             </Typography>
+
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map(item => (
-                <Button key={item} sx={{ color: '#fff', mx: 2 }}>
-                  {item}
+                <Button href={item.path} key={item.label} sx={{ color: 'black', mx: 2 }}>
+                  {item.label}
                 </Button>
               ))}
             </Box>
@@ -85,7 +97,7 @@ function DrawerAppBar(props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
@@ -101,10 +113,6 @@ function DrawerAppBar(props) {
 }
 
 DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 

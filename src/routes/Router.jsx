@@ -7,6 +7,7 @@ const KTpaymentsystem = lazy(() => import('../pages/KTpaymentsystem'));
 const LGpaymentsystem = lazy(() => import('../pages/LGpaymentsystem'));
 const OpenCellPhone = lazy(() => import('../pages/OpenCellPhone'));
 const Main = lazy(() => import('../pages/Main'));
+const Chat = lazy(() => import('../pages/Chat'));
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: 'open-cellphone',
         element: <OpenCellPhone />,
+      },
+      {
+        path: 'chat',
+        element: <Chat />,
       },
     ],
   },

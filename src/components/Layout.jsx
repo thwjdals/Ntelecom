@@ -1,24 +1,32 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import styled from 'styled-components';
 import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
 import Nav from './Nav';
 import Footer from './Footer';
 
-function Layout() {
+const LayoutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const MainContent = styled.main`
+  flex: 1;
+`;
+
+const Layout = () => {
   return (
-    <div>
-      <Container maxWidth="lg">
-        <Nav />
-        <Box sx={{ my: 4 }}>
-          <main>
-            <Outlet />
-          </main>
-        </Box>
-        <Footer />
-      </Container>
-    </div>
+    <LayoutWrapper>
+      <Nav />
+      <MainContent>
+        <Container maxWidth="lg">
+          <Outlet />
+        </Container>
+      </MainContent>
+      <Footer />
+    </LayoutWrapper>
   );
-}
+};
 
 export default Layout;

@@ -59,7 +59,7 @@ function DrawerAppBar(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box justifyContent="center" sx={{ display: 'flex', bgcolor: 'white', height: 65 }}>
+    <Box justifyContent="center" sx={{ display: 'flex', bgcolor: 'white', height: '57px' }}>
       <CssBaseline />
       <AppBar component="nav" sx={{ bgcolor: '#fff', boxShadow: 'none', borderBottom: '1px solid #e0e0e0' }}>
         <Container maxWidth="lg">

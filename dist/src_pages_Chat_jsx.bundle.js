@@ -7,7 +7,7 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-(self["webpackChunkntelecom_project"] = self["webpackChunkntelecom_project"] || []).push([["src_pages_LGpaymentsystem_jsx"],{
+(self["webpackChunkntelecom_project"] = self["webpackChunkntelecom_project"] || []).push([["src_pages_Chat_jsx"],{
 
 /***/ "./src/hooks/useViewPort.jsx":
 /*!***********************************!*\
@@ -19,13 +19,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/pages/LGpaymentsystem.jsx":
-/*!***************************************!*\
-  !*** ./src/pages/LGpaymentsystem.jsx ***!
-  \***************************************/
+/***/ "./src/pages/Chat.jsx":
+/*!****************************!*\
+  !*** ./src/pages/Chat.jsx ***!
+  \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _hooks_useViewPort__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/useViewPort */ \"./src/hooks/useViewPort.jsx\");\nvar _templateObject;\nfunction _taggedTemplateLiteral(e, t) { return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } })); }\n\n\n\nvar Text = styled_components__WEBPACK_IMPORTED_MODULE_2__[\"default\"].p(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  font-size: \", \"px;\\n  line-height: \", \"px;\\n\"])), function (props) {\n  return props.fontSize;\n}, function (props) {\n  return props.lineHeight;\n});\nvar LGpaymentsystem = function LGpaymentsystem() {\n  var _useViewport = (0,_hooks_useViewPort__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(),\n    isMobile = _useViewport.isMobile;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Text, {\n    fontSize: isMobile ? 12 : 16,\n    lineHeight: isMobile ? 18 : 20\n  }, \"LG \\uC120\\uBD88\\uC694\\uAE08\\uC81C\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"article\", null, \"content\"));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LGpaymentsystem);\n\n//# sourceURL=webpack://ntelecom-project/./src/pages/LGpaymentsystem.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\n/* harmony import */ var _hooks_useViewPort__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/useViewPort */ \"./src/hooks/useViewPort.jsx\");\nvar _templateObject;\nfunction _taggedTemplateLiteral(e, t) { return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } })); }\n\n\n\nvar Text = styled_components__WEBPACK_IMPORTED_MODULE_2__[\"default\"].p(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  font-size: \", \"px;\\n  line-height: \", \"px;\\n\"])), function (props) {\n  return props.fontSize;\n}, function (props) {\n  return props.lineHeight;\n});\nvar Chat = function Chat() {\n  var _useViewport = (0,_hooks_useViewPort__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(),\n    isMobile = _useViewport.isMobile;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Text, {\n    fontSize: isMobile ? 12 : 16,\n    lineHeight: isMobile ? 18 : 20\n  }, \"\\uCC44\\uD305\\uC0C1\\uB2F4\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"article\", null, \"content\"));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Chat);\n\n//# sourceURL=webpack://ntelecom-project/./src/pages/Chat.jsx?");
 
 /***/ })
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
 
 const Text = styled.p`
-  color: #414141;
+  color: #5c5c5c;
   font-size: ${props => props.fontSize}px;
   line-height: ${props => props.lineHeight}px;
 `;

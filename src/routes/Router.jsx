@@ -18,26 +18,44 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Suspense fallback={<p>로딩...</p>}>
+          <Suspense fallback={<p>Loading...</p>}>
             <Main />{' '}
           </Suspense>
         ),
       },
       {
         path: 'KTpaymentsystem',
-        element: <KTpaymentsystem />,
+        element: (
+          <Suspense fallback="..loading">
+            {' '}
+            <KTpaymentsystem />,
+          </Suspense>
+        ),
       },
       {
         path: 'LGpaymentsystem',
-        element: <LGpaymentsystem />,
+        element: (
+          <Suspense fallback="..loading">
+            <LGpaymentsystem />
+          </Suspense>
+        ),
       },
       {
         path: 'open-cellphone',
-        element: <OpenCellPhone />,
+        element: (
+          <Suspense fallback="..loading">
+            <OpenCellPhone />
+          </Suspense>
+        ),
       },
       {
         path: 'chat',
-        element: <Chat />,
+        element: (
+          <Suspense fallback="..loading">
+            {' '}
+            <Chat />
+          </Suspense>
+        ),
       },
     ],
   },

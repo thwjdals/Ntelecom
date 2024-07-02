@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import Container from '@mui/material/Container';
 import Nav from './Nav';
 import Footer from './Footer';
 
@@ -20,9 +19,7 @@ const Layout = () => {
     <LayoutWrapper>
       <Nav />
       <MainContent>
-        <Container maxWidth="lg">
-          <Outlet />
-        </Container>
+        <Outlet />
       </MainContent>
       <Footer />
     </LayoutWrapper>

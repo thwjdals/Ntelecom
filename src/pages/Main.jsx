@@ -1,69 +1,108 @@
 import React from 'react';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
-import Container from '@mui/material/Container';
 
-const Text = styled.p`
-  font-size: ${props => props.fontSize}px;
-  line-height: ${props => props.lineHeight}px;
-`;
-
-const BannerContainer = styled.div`
+const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    justify-content: flex-start;
+  }
 `;
 
-const BannerCellphoneImg = styled.img`
+const CellphoneImg = styled.img`
   position: absolute;
   top: 0;
   left: 0;
-  width: 600px;
+  width: 480px;
   height: auto;
   z-index: 1;
 
   @media (max-width: 1200px) {
-    width: 600px;
-    position: relative;
+    width: 480px;
     right: 0;
     left: auto;
-    top: 0;
-    bottom: auto;
   }
 `;
 
-const BannerTextImg = styled.img`
+const MobileImg = styled.img`
+  max-width: 100%;
+  height: auto;
+`;
+
+const TextImg = styled.img`
   position: absolute;
-  top: 250px;
+  top: 200px;
   right: 0;
-  width: 500px;
+  width: 550px;
   height: auto;
   z-index: 2;
 
   @media (max-width: 1200px) {
-    width: 80%;
+    width: 60%;
     top: 0;
-    bottom: auto;
+    left: 30px;
     right: auto;
-    left: 0;
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 80px;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  z-index: 3;
+  width: 100%;
+
+  @media (max-width: 1200px) {
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 40px;
+    width: ${props => (props.isMobile ? '100%' : '450px')};
+    bottom: 0;
+  }
+`;
+
+const ButtonImg = styled.img`
+  width: 400px;
+  height: auto;
+
+  @media (max-width: 1200px) {
+    width: 80%;
+    max-width: 300px; /* Adjust the max-width to fit within smaller screens */
   }
 `;
 
 const Main = () => {
   const { isMobile } = useViewport();
+
   return (
-    <>
-      {/* <Text fontSize={isMobile ? 12 : 16} lineHeight={isMobile ? 18 : 20}>
-        배너
-      </Text> */}
-      <Container maxWidth="lg">
-        <BannerContainer>
-          <BannerTextImg src="../assets/image/banner title.png" alt="배너" />
-          <BannerCellphoneImg src="../assets/image/bannerCellphoneImg.png" alt="배너" />
-        </BannerContainer>
-      </Container>
-    </>
+    <Container>
+      {!isMobile ? (
+        <>
+          <TextImg src="../assets/image/banner title.png" alt="배너" />
+          <CellphoneImg src="../assets/image/bannerCellphoneImg.png" alt="배너" />
+        </>
+      ) : (
+        <MobileImg src="../assets/image/bannerImg(mobile).png" alt="배너" />
+      )}
+
+      <ButtonContainer isMobile={isMobile}>
+        <ButtonImg src="../assets/image/openCellphoneButton.png" alt="셀프 개통 방법 보러가기" />
+        <ButtonImg src="../assets/image/cellPhoneButton.png" alt="전화 상담" />
+        <ButtonImg src="../assets/image/chatButton.png" alt="채널톡 상담" />
+      </ButtonContainer>
+    </Container>
   );
 };
 

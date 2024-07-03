@@ -18,14 +18,8 @@ import Button from '@mui/material/Button';
 import useViewport from '../hooks/useViewPort';
 import Container from '@mui/material/Container';
 import LogoImg from '../assets/images/logo.png';
+import NAV_LIST from '../constant/navList';
 
-const drawerWidth = 240;
-const NAV_LIST = [
-  { label: 'K망 요금제', path: '/KTpaymentsystem' },
-  { label: 'L망 요금제', path: '/LGpaymentsystem' },
-  { label: '개통방법', path: '/open-cellphone' },
-  { label: '상담 문의', path: '/chat' },
-];
 const Logo = styled.img`
   width: 160px;
   height: 100%;
@@ -89,7 +83,7 @@ function DrawerAppBar(props) {
 
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {NAV_LIST.map(item => (
-                <Button href={item.path} key={item.label} sx={{ color: 'black', mx: 2 }}>
+                <Button key={item.label} onClick={() => navigate(item.path)} sx={{ color: 'black', mx: 2 }}>
                   {item.label}
                 </Button>
               ))}
@@ -109,7 +103,7 @@ function DrawerAppBar(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
           }}
         >
           {drawer}

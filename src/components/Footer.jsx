@@ -2,10 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
 
-const Text = styled.div`
+const Container = styled.div`
   color: #5c5c5c;
-  font-size: ${props => props.fontSize}px;
-  line-height: ${props => props.lineHeight}px;
+  font-size: ${props => (props.$isMobile ? 12 : 14)}px;
+  line-height: ${props => (props.$isMobile ? 18 : 20)}px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -21,7 +24,7 @@ const Bar = styled.div`
 const Footer = () => {
   const { isMobile } = useViewport();
   return (
-    <Text fontSize={isMobile ? 12 : 16} lineHeight={isMobile ? 18 : 20}>
+    <Container $isMobile={isMobile}>
       <Wrapper>
         <span>앤텔레콤 셀프개통</span>
         <Bar />
@@ -37,7 +40,7 @@ const Footer = () => {
         <Bar />
         <span>010-0000-0000</span>
       </Wrapper>
-    </Text>
+    </Container>
   );
 };
 export default Footer;

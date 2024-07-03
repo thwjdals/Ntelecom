@@ -27,9 +27,9 @@ const ImgWrapper = styled.div`
 const ButtonWrapper = styled.div`
   position: absolute;
   display: flex;
-  flex-direction: ${props => (props.isMobile ? 'column' : 'row')};
-  justify-content: ${props => (props.isMobile ? '' : 'space-around')};
-  align-items: ${props => (props.isMobile ? 'center' : '')};
+  flex-direction: ${props => (props.$isMobile ? 'column' : 'row')};
+  justify-content: ${props => (props.$isMobile ? '' : 'space-around')};
+  align-items: ${props => (props.$isMobile ? 'center' : '')};
   width: 100%;
   gap: 15px;
   z-index: 3;

@@ -111,6 +111,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
+
 import Banner from '../components/Banner';
 
 const Container = styled.div`

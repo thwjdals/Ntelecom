@@ -127,6 +127,11 @@ const Main = () => {
   return (
     <Container>
       <Banner isMobile={isMobile} />
+
+      {/* {Kakao.Channel.createChatButton({
+        container: '#kakao-talk-channel-chat-button',
+        channelPublicId: '_BxfzYG', 
+      })} */}
     </Container>
   );
 };

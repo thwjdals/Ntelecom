@@ -80,7 +80,7 @@ function DrawerAppBar(props) {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' }, alignItems: 'center', justifyContent: 'start' }}
             >
-              <Logo src="../assets/image/logo.png" alt="앤텔레콤" href="/" />
+              <Logo src="../assets/images/logo.png" alt="앤텔레콤" href="/" />
             </Typography>
 
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>

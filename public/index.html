@@ -5,6 +5,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet" />
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script>
+      Kakao.init('<%= htmlWebpackPlugin.options.env.KAKAO_APP_API_KEY %>');
+      function kakaoChatStart() {
+        Kakao.Channel.chat({
+          channelPublicId: '<%= htmlWebpackPlugin.options.env.KAKAO_CHANNEL_ID %>',
+        });
+      }
+    </script>
 
     <title>title</title>
   </head>

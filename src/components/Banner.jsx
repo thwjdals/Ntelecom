@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import useViewport from '../hooks/useViewPort';
-import openCellphoneButtonImg from '../assets/image/openCellphoneButton.png';
-import cellPhoneButtonImg from '../assets/image/cellPhoneButton.png';
-import chatButtonImg from '../assets/image/chatButton.png';
-import titleImg from '../assets/image/banner title.png';
-import backgroundImg from '../assets/image/bannerCellphoneImg.png';
-import mobileImage from '../assets/image/bannerImg3(mobile).png';
-import { useNavigate } from 'react-router-dom';
+import titleImg from '../assets/images/banner title.png';
+import backgroundImg from '../assets/images/bannerCellphoneImg.png';
+import mobileImage from '../assets/images/bannerImg3(mobile).png';
+import BANNER_BUTTON_LIST from '../constant/bannerButtonList';
 
 const Content = styled.div`
   position: relative;
@@ -34,7 +30,7 @@ const ButtonWrapper = styled.div`
   gap: 15px;
   z-index: 3;
   flex: 1;
-  bottom: ${props => (props.isMobile ? 100 : 180)}px;
+  bottom: ${props => (props.$isMobile ? 100 : 180)}px;
   padding: 0 20px;
 `;
 
@@ -64,30 +60,24 @@ const ImgButton = styled.img`
   flex: 1;
 `;
 const Banner = ({ isMobile }) => {
-  const navigate = useNavigate();
-
-  const imgButtonOject = [
-    { src: openCellphoneButtonImg, alt: '개통방법 알아보기', handleClick: () => navigate('/open-cellphone') },
-    { src: cellPhoneButtonImg, alt: '전화 상담', handleClick: null },
-    { src: chatButtonImg, alt: '채널톡 상담', handleClick: null },
-  ];
-
   return (
-    <Content isMobile={isMobile}>
+    <Content $isMobile={isMobile}>
       {!isMobile && (
-        <ImgWrapper isMobile={isMobile}>
-          <Title src={titleImg} alt={'title'} isMobile={isMobile} />
-          <BackgroundImage src={backgroundImg} isMobile={isMobile} />
+        <ImgWrapper $isMobile={isMobile}>
+          <Title src={titleImg} alt={'title'} $isMobile={isMobile} />
+          <BackgroundImage src={backgroundImg} $isMobile={isMobile} />
         </ImgWrapper>
       )}
       {!!isMobile && (
-        <ImgWrapper isMobile={isMobile}>
-          <MobildImage src={mobileImage} isMobile={isMobile} />
+        <ImgWrapper $isMobile={isMobile}>
+          <MobildImage src={mobileImage} $isMobile={isMobile} />
         </ImgWrapper>
       )}
-      <ButtonWrapper isMobile={isMobile}>
-        {imgButtonOject?.map(item => (
-          <ImgButton key={item.src} src={item.src} alt={item.alt} onClick={item.handleClick} />
+      <ButtonWrapper $isMobile={isMobile}>
+        {BANNER_BUTTON_LIST?.map(item => (
+          <a href={item.href}>
+            <ImgButton key={item.src} src={item.src} alt={item.alt} />
+          </a>
         ))}
       </ButtonWrapper>
     </Content>

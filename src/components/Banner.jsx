@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import useViewport from '../hooks/useViewPort';
-import openCellphoneButtonImg from '../assets/image/openCellphoneButton.png';
-import cellPhoneButtonImg from '../assets/image/cellPhoneButton.png';
-import chatButtonImg from '../assets/image/chatButton.png';
-import titleImg from '../assets/image/banner title.png';
-import backgroundImg from '../assets/image/bannerCellphoneImg.png';
-import mobileImage from '../assets/image/bannerImg3(mobile).png';
-import { useNavigate } from 'react-router-dom';
+import titleImg from '../assets/images/banner title.png';
+import backgroundImg from '../assets/images/bannerCellphoneImg.png';
+import mobileImage from '../assets/images/bannerImg3(mobile).png';
+import BANNER_BUTTON_LIST from '../constant/bannerButtonList';
 
 const Content = styled.div`
   position: relative;
@@ -64,18 +60,6 @@ const ImgButton = styled.img`
   flex: 1;
 `;
 const Banner = ({ isMobile }) => {
-  const navigate = useNavigate();
-
-  const imgButtonOject = [
-    { src: openCellphoneButtonImg, alt: '개통방법 알아보기', href: '/open-cellphone' },
-    { src: cellPhoneButtonImg, alt: '전화 상담', href: 'tel:010-8667-4402' },
-    {
-      src: chatButtonImg,
-      alt: '채널톡 상담',
-      href: 'javascript: kakaoChatStart()',
-    },
-  ];
-
   return (
     <Content $isMobile={isMobile}>
       {!isMobile && (
@@ -90,7 +74,7 @@ const Banner = ({ isMobile }) => {
         </ImgWrapper>
       )}
       <ButtonWrapper $isMobile={isMobile}>
-        {imgButtonOject?.map(item => (
+        {BANNER_BUTTON_LIST?.map(item => (
           <a href={item.href}>
             <ImgButton key={item.src} src={item.src} alt={item.alt} />
           </a>

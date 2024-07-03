@@ -3,7 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Nav from './Nav';
 import Footer from './Footer';
-import Button_kakaoChannelChat from '../assets/image/Button_kakaoChannelChat.png';
+import Button_kakaoChannelChat from '../assets/images/Button_kakaoChannelChat.png';
 
 const LayoutWrapper = styled.div`
   display: flex;

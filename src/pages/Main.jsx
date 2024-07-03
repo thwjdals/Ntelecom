@@ -126,7 +126,7 @@ const Main = () => {
 
   return (
     <Container>
-      <Banner $isMobile={isMobile} />
+      <Banner isMobile={isMobile} />
     </Container>
   );
 };

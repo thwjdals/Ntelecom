@@ -34,7 +34,7 @@ const ButtonWrapper = styled.div`
   gap: 15px;
   z-index: 3;
   flex: 1;
-  bottom: ${props => (props.isMobile ? 100 : 180)}px;
+  bottom: ${props => (props.$isMobile ? 100 : 180)}px;
   padding: 0 20px;
 `;
 
@@ -73,19 +73,19 @@ const Banner = ({ isMobile }) => {
   ];
 
   return (
-    <Content isMobile={isMobile}>
+    <Content $isMobile={isMobile}>
       {!isMobile && (
-        <ImgWrapper isMobile={isMobile}>
-          <Title src={titleImg} alt={'title'} isMobile={isMobile} />
-          <BackgroundImage src={backgroundImg} isMobile={isMobile} />
+        <ImgWrapper $isMobile={isMobile}>
+          <Title src={titleImg} alt={'title'} $isMobile={isMobile} />
+          <BackgroundImage src={backgroundImg} $isMobile={isMobile} />
         </ImgWrapper>
       )}
       {!!isMobile && (
-        <ImgWrapper isMobile={isMobile}>
-          <MobildImage src={mobileImage} isMobile={isMobile} />
+        <ImgWrapper $isMobile={isMobile}>
+          <MobildImage src={mobileImage} $isMobile={isMobile} />
         </ImgWrapper>
       )}
-      <ButtonWrapper isMobile={isMobile}>
+      <ButtonWrapper $isMobile={isMobile}>
         {imgButtonOject?.map(item => (
           <ImgButton key={item.src} src={item.src} alt={item.alt} onClick={item.handleClick} />
         ))}

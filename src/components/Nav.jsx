@@ -58,10 +58,6 @@ function DrawerAppBar(props) {
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
-  const Div = styled.div`
-    width: 100%;
-    height: auto;
-  `;
   return (
     <Box justifyContent="center" sx={{ display: 'flex', bgcolor: 'white', height: 'auto' }}>
       <AppBar

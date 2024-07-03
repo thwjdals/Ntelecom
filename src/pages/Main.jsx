@@ -125,8 +125,8 @@ const Main = () => {
   const { isMobile } = useViewport();
 
   return (
-    <Container isMobile={isMobile}>
-      <Banner isMobile={isMobile} />
+    <Container>
+      <Banner $isMobile={isMobile} />
     </Container>
   );
 };

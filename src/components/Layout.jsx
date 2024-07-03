@@ -11,9 +11,9 @@ const LayoutWrapper = styled.div`
   /* min-height: 100vh; */
 `;
 
-const MainContent = styled.main`
-  /* flex: 1; */
-`;
+// const MainContent = styled.main`
+//   flex: 1;
+// `;
 
 const Layout = () => {
   return (

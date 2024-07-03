@@ -67,9 +67,13 @@ const Banner = ({ isMobile }) => {
   const navigate = useNavigate();
 
   const imgButtonOject = [
-    { src: openCellphoneButtonImg, alt: '개통방법 알아보기', handleClick: () => navigate('/open-cellphone') },
-    { src: cellPhoneButtonImg, alt: '전화 상담', handleClick: null },
-    { src: chatButtonImg, alt: '채널톡 상담', handleClick: null },
+    { src: openCellphoneButtonImg, alt: '개통방법 알아보기', href: '/open-cellphone' },
+    { src: cellPhoneButtonImg, alt: '전화 상담', href: 'tel:010-8667-4402' },
+    {
+      src: chatButtonImg,
+      alt: '채널톡 상담',
+      href: 'javascript: kakaoChatStart()',
+    },
   ];
 
   return (
@@ -87,7 +91,9 @@ const Banner = ({ isMobile }) => {
       )}
       <ButtonWrapper $isMobile={isMobile}>
         {imgButtonOject?.map(item => (
-          <ImgButton key={item.src} src={item.src} alt={item.alt} onClick={item.handleClick} />
+          <a href={item.href}>
+            <ImgButton key={item.src} src={item.src} alt={item.alt} />
+          </a>
         ))}
       </ButtonWrapper>
     </Content>

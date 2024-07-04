@@ -1,11 +1,18 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import React from 'react';
-
-function App() {
-  const name = 'mihye';
-
-  return <h1>Hello {name}</h1>;
-}
+import { RouterProvider } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { theme, mixins } from './style/theme';
+import GlobalStyle from './style/GlobalStyle';
+import router from './routes/Router';
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(<App />);
+
+root.render(
+  <React.StrictMode>
+    <ThemeProvider theme={{ ...theme, ...mixins }}>
+      <GlobalStyle />
+      <RouterProvider router={router} fallbackElement={<div>Loading...</div>} />
+    </ThemeProvider>
+  </React.StrictMode>,
+);

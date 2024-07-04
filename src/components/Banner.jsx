@@ -4,6 +4,7 @@ import titleImg from '../assets/images/banner title.png';
 import backgroundImg from '../assets/images/bannerCellphoneImg.png';
 import mobileImage from '../assets/images/bannerImg3(mobile).png';
 import BANNER_BUTTON_LIST from '../constant/bannerButtonList';
+import { useNavigate } from 'react-router';
 
 const Content = styled.div`
   position: relative;
@@ -60,6 +61,7 @@ const ImgButton = styled.img`
   flex: 1;
 `;
 const Banner = ({ isMobile }) => {
+  const navigate = useNavigate();
   return (
     <Content $isMobile={isMobile}>
       {!isMobile && (
@@ -75,8 +77,13 @@ const Banner = ({ isMobile }) => {
       )}
       <ButtonWrapper $isMobile={isMobile}>
         {BANNER_BUTTON_LIST?.map(item => (
-          <a href={item.href}>
-            <ImgButton key={item.src} src={item.src} alt={item.alt} />
+          <a key={item.src} href={item.href ? item.href : null}>
+            <ImgButton
+              key={item.href}
+              src={item.src}
+              alt={item.alt}
+              onClick={item.handleOnClick ? item.handleOnClick : () => navigate(item.path)}
+            />
           </a>
         ))}
       </ButtonWrapper>

@@ -26,15 +26,12 @@ const KakaoChatImg = styled.img`
 `;
 const Layout = () => {
   const { pathname } = useLocation();
-
   return (
     <LayoutWrapper>
       <Nav />
       <Outlet />
       {pathname !== '/' ? (
-        <a href="javascript:kakaoChatStart()">
-          <KakaoChatImg src={Button_kakaoChannelChat} alt="상담톡" />
-        </a>
+        <KakaoChatImg src={Button_kakaoChannelChat} alt="상담톡" onClick={() => kakaoChatStart()} />
       ) : null}
       <Footer />
     </LayoutWrapper>

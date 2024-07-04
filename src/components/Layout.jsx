@@ -8,13 +8,7 @@ import Button_kakaoChannelChat from '../assets/images/Button_kakaoChannelChat.pn
 const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  /* min-height: 100vh; */
 `;
-
-// const MainContent = styled.main`
-//   flex: 1;
-// `;
 
 const KakaoChatImg = styled.img`
   position: fixed;

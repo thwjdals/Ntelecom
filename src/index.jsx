@@ -4,14 +4,12 @@ import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme, mixins } from './style/theme';
 import GlobalStyle from './style/GlobalStyle';
-import CssBaseline from '@mui/material/CssBaseline';
 import router from './routes/Router';
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
 
 root.render(
   <React.StrictMode>
-    {/* <CssBaseline /> */}
     <ThemeProvider theme={{ ...theme, ...mixins }}>
       <GlobalStyle />
       <RouterProvider router={router} fallbackElement={<div>Loading...</div>} />

@@ -29,7 +29,6 @@ export const theme = {
 };
 
 export const mixins = {
-  // flex
   flexBox: (direction = 'row', align = 'center', justify = 'center') => `
     display: flex;
     flex-direction: ${direction};

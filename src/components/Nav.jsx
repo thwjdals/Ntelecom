@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
@@ -16,21 +17,17 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import useViewport from '../hooks/useViewPort';
 import Container from '@mui/material/Container';
-import { Height } from '@mui/icons-material';
+import LogoImg from '../assets/images/logo.png';
+import NAV_LIST from '../constant/navList';
 
-const drawerWidth = 240;
-const navItems = [
-  { label: 'K망 요금제', path: '/KTpaymentsystem' },
-  { label: 'L망 요금제', path: '/LGpaymentsystem' },
-  { label: '개통방법', path: '/open-cellphone' },
-  { label: '상담 문의', path: '/chat' },
-];
 const Logo = styled.img`
   width: 160px;
   height: 100%;
+  cursor: pointer;
 `;
+
 function DrawerAppBar(props) {
-  const { isMobile } = useViewport();
+  const navigate = useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -40,12 +37,13 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" href="/" sx={{ my: 2 }}>
+      <Typography variant="h6" href="/" sx={{ my: 2, cursor: 'pointer' }} onClick={() => navigate('/')}>
         앤탤레콤
       </Typography>
+
       <Divider />
       <List>
-        {navItems.map(item => (
+        {NAV_LIST.map(item => (
           <ListItem key={item.label} disablePadding>
             <ListItemButton href={item.path} sx={{ textAlign: 'center' }}>
               <ListItemText primary={item.label} />
@@ -80,12 +78,12 @@ function DrawerAppBar(props) {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' }, alignItems: 'center', justifyContent: 'start' }}
             >
-              <Logo src="../assets/images/logo.png" alt="앤텔레콤" href="/" />
+              <Logo src={LogoImg} alt="앤텔레콤" onClick={() => navigate('/')} />
             </Typography>
 
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {navItems.map(item => (
-                <Button href={item.path} key={item.label} sx={{ color: 'black', mx: 2 }}>
+              {NAV_LIST.map(item => (
+                <Button key={item.label} onClick={() => navigate(item.path)} sx={{ color: 'black', mx: 2 }}>
                   {item.label}
                 </Button>
               ))}
@@ -105,7 +103,7 @@ function DrawerAppBar(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
           }}
         >
           {drawer}

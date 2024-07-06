@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
 import ExampleImage from '../assets/images/exampleImage.png';
+import { LG_APP_STORE_LINK_LIST } from '../constant/appStoreLinktList';
 
 const Container = styled.div`
   width: 100%;
@@ -25,15 +26,46 @@ const ExampleImg = styled.img`
   height: auto;
 `;
 
+const Button = styled.button`
+  text-decoration: none;
+  color: white;
+  padding: 10px 10px;
+  display: inline-block;
+  background-color: #1f1f1f;
+  position: relative;
+  border: 1px solid #1f1f1f;
+  border-radius: 15px;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: ${props => (props.$isMobile ? 'column' : 'row')};
+  margin-bottom: 15px;
+`;
 const LGactivationMethod = () => {
   const { isMobile } = useViewport();
+
   return (
-    <Container>
-      <Title $isMobile={isMobile}>앤텔레콤 멤버십 L망 접수방법</Title>
+    <Container $isMobile={isMobile}>
+      <ButtonWrapper $isMobile={isMobile}>
+        {LG_APP_STORE_LINK_LIST.map(item => (
+          <a href={item.href}>
+            <Button>{item.label}</Button>
+          </a>
+        ))}
+      </ButtonWrapper>
+
+      <Title $isMobile={isMobile}>앤텔레콤 멤버십 K망 접수방법</Title>
       <Content>
+        <ExampleImg src={ExampleImage} alt="샘플"></ExampleImg>
+        <ExampleImg src={ExampleImage} alt="샘플"></ExampleImg>
         <ExampleImg src={ExampleImage} alt="샘플"></ExampleImg>
       </Content>
     </Container>
   );
 };
+
 export default LGactivationMethod;

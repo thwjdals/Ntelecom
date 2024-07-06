@@ -9,7 +9,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   flex-direction: ${props => (props.$isMobile ? 'column' : 'row')};
 `;
 
@@ -43,10 +43,8 @@ const ActivationMethods = () => {
         <SubTitle $isMobile={isMobile}>앤텔레 멤버심 K망 개통방법</SubTitle>
         <MembershipImg src={ktMembershipImg} alt="샘플" $isMobile={isMobile}></MembershipImg>
       </Content>
-      <Content $isMobile={isMobile}>
-        <SubTitle $isMobile={isMobile} onClick={() => navigate('/activation-method/LG')}>
-          앤텔레 멤버심 L망 개통방법
-        </SubTitle>
+      <Content $isMobile={isMobile} onClick={() => navigate('/activation-method/LG')}>
+        <SubTitle $isMobile={isMobile}>앤텔레 멤버심 L망 개통방법</SubTitle>
         <MembershipImg src={lgMembershipImg} alt="샘플" $isMobile={isMobile} />
       </Content>
     </Container>

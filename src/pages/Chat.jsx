@@ -13,7 +13,6 @@ const Container = styled.div`
   justify-content: center;
 `;
 const Content = styled.div`
-  width: auto%;
   height: 100%;
   display: flex;
 
@@ -35,14 +34,17 @@ const KakaoImg = styled.img`
 
 const Chat = () => {
   const { isMobile } = useViewport();
+
   return (
     <Container $isMobile={isMobile}>
-      <Content $isMobile={isMobile}>
+      <Content $isMobile={isMobile} onClick={() => kakaoChatStart()}>
         <KakaoImg $isMobile={isMobile} src={kakaoChannelChatImg} alt="카카오톡연결"></KakaoImg>
       </Content>
-      <Content $isMobile={isMobile}>
-        <CallImg $isMobile={isMobile} src={callImg} alt="전화연결"></CallImg>
-      </Content>
+      <a href="tel:010-0000-0000">
+        <Content $isMobile={isMobile}>
+          <CallImg $isMobile={isMobile} src={callImg} alt="전화연결"></CallImg>
+        </Content>
+      </a>
     </Container>
   );
 };

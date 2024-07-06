@@ -4,7 +4,7 @@ import chatBtnImg from '../assets/images/button/chatBtnImg.png';
 
 const BANNER_BUTTON_LIST = [
   { src: activationMethodsBtnImg, alt: '개통방법 알아보기', path: '/activation-method' },
-  { src: callBtnImg, alt: '전화 상담', href: 'tel:010-8667-4402' },
+  { src: callBtnImg, alt: '전화 상담', href: 'tel:010-0000-0000' },
   {
     src: chatBtnImg,
     alt: '채널톡 상담',

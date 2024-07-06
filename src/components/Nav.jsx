@@ -15,7 +15,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import useViewport from '../hooks/useViewPort';
 import Container from '@mui/material/Container';
 import LogoImg from '../assets/images/logo.png';
 import NAV_LIST from '../constant/navList';
@@ -26,13 +25,33 @@ const Logo = styled.img`
   cursor: pointer;
 `;
 
-function DrawerAppBar(props) {
+const DropdownMenu = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  display: ${props => (props.open ? 'block' : 'none')};
+  z-index: 1000;
+`;
+
+const DrawerAppBar = props => {
   const navigate = useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(prevState => !prevState);
+  };
+
+  const handleDropdownToggle = open => {
+    setDropdownOpen(open);
+  };
+
+  const handleNavigate = path => {
+    navigate(path);
+    setDropdownOpen(false);
   };
 
   const drawer = (
@@ -81,12 +100,43 @@ function DrawerAppBar(props) {
               <Logo src={LogoImg} alt="앤텔레콤" onClick={() => navigate('/')} />
             </Typography>
 
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {NAV_LIST.map(item => (
-                <Button key={item.label} onClick={() => navigate(item.path)} sx={{ color: 'black', mx: 2 }}>
-                  {item.label}
-                </Button>
-              ))}
+            <Box sx={{ display: { xs: 'none', sm: 'block' }, position: 'relative' }}>
+              {NAV_LIST.map(item =>
+                item.dropdown ? (
+                  <Box
+                    key={item.label}
+                    onMouseEnter={() => handleDropdownToggle(true)}
+                    onMouseLeave={() => handleDropdownToggle(false)}
+                    sx={{ display: 'inline-block', position: 'relative' }}
+                  >
+                    <Button sx={{ color: 'black', mx: 2 }} onClick={() => handleNavigate(item.path)}>
+                      {item.label}
+                    </Button>
+                    <DropdownMenu open={dropdownOpen}>
+                      {item.dropdown.map(subItem => (
+                        <Button
+                          key={subItem.label}
+                          onClick={() => handleNavigate(subItem.path)}
+                          sx={{
+                            display: 'block',
+                            width: '100%',
+                            textAlign: 'left',
+                            color: 'grey',
+                            padding: '8px 12px',
+                            fontSize: 13,
+                          }}
+                        >
+                          {subItem.label}
+                        </Button>
+                      ))}
+                    </DropdownMenu>
+                  </Box>
+                ) : (
+                  <Button key={item.label} onClick={() => navigate(item.path)} sx={{ color: 'black', mx: 2 }}>
+                    {item.label}
+                  </Button>
+                ),
+              )}
             </Box>
           </Toolbar>
         </Container>
@@ -111,7 +161,7 @@ function DrawerAppBar(props) {
       </nav>
     </Box>
   );
-}
+};
 
 DrawerAppBar.propTypes = {
   window: PropTypes.func,

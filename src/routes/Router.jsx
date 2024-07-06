@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback="..loading">
             {' '}
-            <KTpaymentsystem />,
+            <KTpaymentsystem />
           </Suspense>
         ),
       },

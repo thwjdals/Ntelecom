@@ -9,7 +9,14 @@ const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
+const Content = styled.div`
+  padding: ${props => (props.$pathname == '/' ? 'none' : '32px')};
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+`;
 const KakaoChatImg = styled.img`
   position: fixed;
   z-index: 999;
@@ -23,7 +30,9 @@ const Layout = () => {
   return (
     <LayoutWrapper>
       <Nav />
-      <Outlet />
+      <Content $pathname={pathname}>
+        <Outlet />
+      </Content>
       {pathname !== '/' ? (
         <KakaoChatImg src={Button_kakaoChannelChat} alt="상담톡" onClick={() => kakaoChatStart()} />
       ) : null}

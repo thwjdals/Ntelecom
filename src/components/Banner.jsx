@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import titleImg from '../assets/images/banner title.png';
-import backgroundImg from '../assets/images/bannerCellphoneImg.png';
-import mobileImage from '../assets/images/bannerImg3(mobile).png';
+import bannerTitleImg from '../assets/images/banner/bannerTitleImg.png';
+import bannerCellphoneImg from '../assets/images/banner/bannerCellphoneImg.png';
+import mobileBackgroundImg from '../assets/images/banner/mobileBackgroundImg.png';
 import BANNER_BUTTON_LIST from '../constant/bannerButtonList';
 import { useNavigate } from 'react-router';
 
@@ -44,14 +44,14 @@ const Title = styled.img`
   z-index: 2;
 `;
 
-const BackgroundImage = styled.img`
+const BannerCellphoneImg = styled.img`
   position: absolute;
   width: 520px;
   right: 0;
   z-index: 1;
 `;
 
-const MobildImage = styled.img`
+const MobildBackgroundImg = styled.img`
   position: absolute;
   width: 100%;
 `;
@@ -68,13 +68,13 @@ const Banner = ({ isMobile }) => {
     <Content $isMobile={isMobile}>
       {!isMobile && (
         <ImgWrapper $isMobile={isMobile}>
-          <Title src={titleImg} alt={'title'} $isMobile={isMobile} />
-          <BackgroundImage src={backgroundImg} $isMobile={isMobile} />
+          <Title src={bannerTitleImg} alt={'title'} $isMobile={isMobile} />
+          <BannerCellphoneImg src={bannerCellphoneImg} $isMobile={isMobile} />
         </ImgWrapper>
       )}
       {!!isMobile && (
         <ImgWrapper $isMobile={isMobile}>
-          <MobildImage src={mobileImage} $isMobile={isMobile} />
+          <MobildBackgroundImg src={mobileBackgroundImg} $isMobile={isMobile} />
         </ImgWrapper>
       )}
       <ButtonWrapper $isMobile={isMobile}>

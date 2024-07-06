@@ -5,7 +5,7 @@ import { lazy, Suspense } from 'react';
 const Layout = lazy(() => import('../components/Layout'));
 const KTpaymentsystem = lazy(() => import('../pages/KTpaymentsystem'));
 const LGpaymentsystem = lazy(() => import('../pages/LGpaymentsystem'));
-const OpenCellPhone = lazy(() => import('../pages/OpenCellPhone'));
+const ActivateMethods = lazy(() => import('../pages/ActivateMethods'));
 const Main = lazy(() => import('../pages/Main'));
 const Chat = lazy(() => import('../pages/Chat'));
 
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         path: 'open-cellphone',
         element: (
           <Suspense fallback="..loading">
-            <OpenCellPhone />
+            <ActivateMethods />
           </Suspense>
         ),
       },

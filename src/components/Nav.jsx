@@ -16,7 +16,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import LogoImg from '../assets/images/logo.png';
+import LogoImg from '../assets/images/logo/logo.png';
 import NAV_LIST from '../constant/navList';
 
 const Logo = styled.img`

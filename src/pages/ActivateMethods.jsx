@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
-import ktMembershipImg from '../assets/images/ktMembershipImg.png';
-import lgMembershipImg from '../assets/images/lgMembershipImg.png';
+import ktMembershipImg from '../assets/images/resource/ktMembershipImg.png';
+import lgMembershipImg from '../assets/images/resource/lgMembershipImg.png';
 
 const Container = styled.div`
   width: 100%;
@@ -32,7 +32,7 @@ const ExampleImg = styled.img`
   height: auto;
 `;
 
-const OpenCellPhone = () => {
+const ActivateMethods = () => {
   const { isMobile } = useViewport();
   return (
     <Container $isMobile={isMobile}>
@@ -47,4 +47,4 @@ const OpenCellPhone = () => {
     </Container>
   );
 };
-export default OpenCellPhone;
+export default ActivateMethods;

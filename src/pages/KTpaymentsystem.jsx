@@ -1,25 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
+import ExampleImage from '../assets/images/exampleImage.png';
 
-const Text = styled.p`
-  font-size: ${props => props.fontSize}px;
-  line-height: ${props => props.lineHeight}px;
-`;
-
-const Div = styled.div`
+const Container = styled.div`
   width: 100%;
   height: 100%;
 `;
+
+const Content = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+`;
+
+const Title = styled.p`
+  font-size: ${props => (props.$isMobile ? 24 : 32)}px;
+  font-weight: 600;
+  margin-bottom: 30px;
+`;
+const SubTitle = styled.p`
+  font-size: ${props => (props.$isMobile ? 18 : 28)}px;
+  font-weight: 500;
+  margin-bottom: 15px;
+`;
+
+const ExampleImg = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
 const KTpaymentsystem = () => {
   const { isMobile } = useViewport();
   return (
-    <Div>
-      <Text fontSize={isMobile ? 12 : 16} lineHeight={isMobile ? 18 : 20}>
-        KT 선불요금제
-      </Text>
-      <article>content</article>
-    </Div>
+    <Container>
+      <Title $isMobile={isMobile}>K망 선불요금제</Title>
+      <Content>
+        <SubTitle $isMobile={isMobile}>추천 요금제</SubTitle>
+        <ExampleImg src={ExampleImage} alt="샘플"></ExampleImg>
+      </Content>
+      <Content>
+        <SubTitle $isMobile={isMobile}>선불 LTE 요금제</SubTitle>
+        <ExampleImg src={ExampleImage} alt="샘플" />
+      </Content>
+    </Container>
   );
 };
 export default KTpaymentsystem;

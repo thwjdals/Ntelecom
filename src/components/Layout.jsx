@@ -3,7 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Nav from './Nav';
 import Footer from './Footer';
-import Button_kakaoChannelChat from '../assets/images/resource/kakaoChannelChatBtnImg.png';
+import kakaoChannelChatBtnImg from '../assets/images/resource/kakaoChannelChatBtnImg.png';
 
 const LayoutWrapper = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ const Layout = () => {
         <Outlet />
       </Content>
       {pathname !== '/' ? (
-        <KakaoChatImg src={Button_kakaoChannelChat} alt="상담톡" onClick={() => kakaoChatStart()} />
+        <KakaoChatImg src={kakaoChannelChatBtnImg} alt="상담톡" onClick={() => kakaoChatStart()} />
       ) : null}
       <Footer />
     </LayoutWrapper>

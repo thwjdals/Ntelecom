@@ -3,10 +3,10 @@ const NAV_LIST = [
   { label: 'L망 요금제', path: '/LGpaymentsystem' },
   {
     label: '개통방법',
-    path: '/open-cellphone',
+    path: '/activation-method',
     dropdown: [
-      { label: 'K망 개통방법', path: '/ktOpenmanagement' },
-      { label: 'L망 개통방법', path: '/lgOpenmanagement' },
+      { label: 'K망 개통방법', path: '/activation-method/KT' },
+      { label: 'L망 개통방법', path: '/activation-method/LG' },
     ],
   },
   { label: '상담 문의', path: '/chat' },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
 import ktMembershipImg from '../assets/images/resource/ktMembershipImg.png';
@@ -19,6 +20,7 @@ const Content = styled.div`
   align-items: center;
   flex-direction: column;
   margin: ${props => (props.$isMobile ? '0 0 15px 0' : '60px')};
+  cursor: pointer;
 `;
 
 const SubTitle = styled.p`
@@ -27,24 +29,27 @@ const SubTitle = styled.p`
   margin-bottom: 15px;
 `;
 
-const ExampleImg = styled.img`
+const MembershipImg = styled.img`
   width: ${props => (props.$isMobile ? 60 : 95)}%;
   height: auto;
 `;
 
-const ActivateMethods = () => {
+const ActivationMethods = () => {
   const { isMobile } = useViewport();
+  const navigate = useNavigate();
   return (
     <Container $isMobile={isMobile}>
-      <Content $isMobile={isMobile}>
+      <Content $isMobile={isMobile} onClick={() => navigate('/activation-method/KT')}>
         <SubTitle $isMobile={isMobile}>앤텔레 멤버심 K망 개통방법</SubTitle>
-        <ExampleImg src={ktMembershipImg} alt="샘플" $isMobile={isMobile}></ExampleImg>
+        <MembershipImg src={ktMembershipImg} alt="샘플" $isMobile={isMobile}></MembershipImg>
       </Content>
       <Content $isMobile={isMobile}>
-        <SubTitle $isMobile={isMobile}>앤텔레 멤버심 L망 개통방법</SubTitle>
-        <ExampleImg src={lgMembershipImg} alt="샘플" $isMobile={isMobile} />
+        <SubTitle $isMobile={isMobile} onClick={() => navigate('/activation-method/LG')}>
+          앤텔레 멤버심 L망 개통방법
+        </SubTitle>
+        <MembershipImg src={lgMembershipImg} alt="샘플" $isMobile={isMobile} />
       </Content>
     </Container>
   );
 };
-export default ActivateMethods;
+export default ActivationMethods;

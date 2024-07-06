@@ -27,11 +27,12 @@ const ButtonWrapper = styled.div`
   flex-direction: ${props => (props.$isMobile ? 'column' : 'row')};
   justify-content: ${props => (props.$isMobile ? '' : 'space-around')};
   align-items: ${props => (props.$isMobile ? 'center' : '')};
-  width: 100%;
+  width: ${props => (props.$isMobile ? '75%;' : '100%;')};
+  height: auto;
   gap: 15px;
   z-index: 3;
   flex: 1;
-  bottom: ${props => (props.$isMobile ? 100 : 180)}px;
+  bottom: ${props => (props.$isMobile ? '15%' : '25%')};
   padding: 0 20px;
 `;
 
@@ -57,6 +58,7 @@ const MobildImage = styled.img`
 const ImgButton = styled.img`
   max-width: 300px;
   min-width: 175px;
+  width: 100%;
   height: auto;
   flex: 1;
 `;

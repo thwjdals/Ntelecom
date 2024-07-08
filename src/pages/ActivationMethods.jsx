@@ -40,11 +40,11 @@ const ActivationMethods = () => {
   return (
     <Container $isMobile={isMobile}>
       <Content $isMobile={isMobile} onClick={() => navigate('/activation-method/KT')}>
-        <SubTitle $isMobile={isMobile}>앤텔레콤 멤버심 K망 개통방법</SubTitle>
+        <SubTitle $isMobile={isMobile}>앤텔레콤 멤버십 K망 개통방법</SubTitle>
         <MembershipImg src={ktMembershipImg} alt="샘플" $isMobile={isMobile}></MembershipImg>
       </Content>
       <Content $isMobile={isMobile} onClick={() => navigate('/activation-method/LG')}>
-        <SubTitle $isMobile={isMobile}>앤텔레콤 멤버심 L망 개통방법</SubTitle>
+        <SubTitle $isMobile={isMobile}>앤텔레콤 멤버십 L망 개통방법</SubTitle>
         <MembershipImg src={lgMembershipImg} alt="샘플" $isMobile={isMobile} />
       </Content>
     </Container>

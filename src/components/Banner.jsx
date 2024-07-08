@@ -17,8 +17,7 @@ const Content = styled.div`
 
 const ImgWrapper = styled.div`
   width: 100%;
-  height: auto;
-  display: flex;
+  height: 100%;
 `;
 
 const ButtonWrapper = styled.div`
@@ -32,7 +31,7 @@ const ButtonWrapper = styled.div`
   gap: 15px;
   z-index: 3;
   flex: 1;
-  bottom: ${props => (props.$isMobile ? '15%' : '25%')};
+  bottom: ${props => (props.$isMobile ? '15%' : '35%')};
   padding: 0 20px;
 `;
 
@@ -52,14 +51,13 @@ const BannerCellphoneImg = styled.img`
 `;
 
 const MobildBackgroundImg = styled.img`
-  position: absolute;
   width: 100%;
+  height: auto;
 `;
 const ImgButton = styled.img`
   max-width: 300px;
   min-width: 175px;
   width: 100%;
-  height: auto;
   flex: 1;
 `;
 const Banner = ({ isMobile }) => {

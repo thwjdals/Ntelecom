@@ -18,9 +18,10 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import LogoImg from '../assets/images/logo/logo.png';
 import NAV_LIST from '../constant/navList';
+import useViewport from '../hooks/useViewPort';
 
 const Logo = styled.img`
-  width: 160px;
+  width: ${props => (props.$isMobile ? '90px' : '160px')};
   height: 100%;
   cursor: pointer;
 `;
@@ -37,6 +38,7 @@ const DropdownMenu = styled.div`
 
 const DrawerAppBar = props => {
   const navigate = useNavigate();
+  const { isMobile } = useViewport();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
@@ -57,7 +59,7 @@ const DrawerAppBar = props => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" href="/" sx={{ my: 2, cursor: 'pointer' }} onClick={() => navigate('/')}>
-        앤탤레콤
+        앤텔레콤
       </Typography>
 
       <Divider />
@@ -93,12 +95,11 @@ const DrawerAppBar = props => {
             >
               <MenuIcon />
             </IconButton>
+            <Logo $isMobile={isMobile} src={LogoImg} alt="앤텔레콤" onClick={() => navigate('/')} />
             <Typography
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' }, alignItems: 'center', justifyContent: 'start' }}
-            >
-              <Logo src={LogoImg} alt="앤텔레콤" onClick={() => navigate('/')} />
-            </Typography>
+            ></Typography>
 
             <Box sx={{ display: { xs: 'none', sm: 'block' }, position: 'relative' }}>
               {NAV_LIST.map(item =>

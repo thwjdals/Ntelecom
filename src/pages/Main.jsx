@@ -7,14 +7,14 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: ${props => (props.$isMobile ? '100%' : '100vh')};
 `;
 
 const Main = () => {
   const { isMobile } = useViewport();
 
   return (
-    <Container>
+    <Container $isMobile={isMobile}>
       <Banner isMobile={isMobile} />
     </Container>
   );

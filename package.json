@@ -19,24 +19,25 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "webpack build --config ./webpack.config.js",
-    "start": "webpack-dev-server --open",
-    "postbuild": "react-snap"
+    "start": "webpack-dev-server --open"
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.9",
     "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.24.7",
     "babel-loader": "^9.1.3",
-    "copy-webpack-plugin": "^12.0.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
     "dotenv": "^16.4.5",
     "eslint": "^9.6.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
-    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
+    "image-webpack-loader": "^8.1.0",
+    "mini-css-extract-plugin": "^2.9.2",
     "prettier": "^3.3.2",
+    "puppeteer": "^23.6.0",
     "react-helmet-async": "^2.0.5",
-    "react-snap": "^1.23.0",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.92.1",
@@ -47,16 +48,6 @@
   "alias": {
     "@mui/styled-engine": "@mui/styled-engine-sc"
   },
-  "reactSnap": {
-    "source": "dist",
-    "include": [
-      "/",
-      "/KTpaymentsystem",
-      "/LGpaymentsystem",
-      "/activation-method",
-      "/activation-method/KT",
-      "/activation-method/LG",
-      "/chat"
-    ]
-  }
+  "skipThirdPartyRequests": true,
+  "preconnectThirdParty": false
 }

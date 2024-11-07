@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
 import lg_activation from '../assets/images/content/lg_activation.jpg';
 import { LG_APP_STORE_LINK_LIST } from '../constant/appStoreLinktList';
-import { LGactivationMethodPageMetas } from '../metadatas/metadats';
 
 const Container = styled.div`
   width: 100%;
@@ -51,7 +50,6 @@ const LGactivationMethod = () => {
 
   return (
     <>
-      <LGactivationMethodPageMetas />
       <Container $isMobile={isMobile}>
         <ButtonWrapper $isMobile={isMobile}>
           {LG_APP_STORE_LINK_LIST.map(item => (

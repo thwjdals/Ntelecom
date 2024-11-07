@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
 import ktMembershipImg from '../assets/images/resource/ktMembershipImg.png';
 import lgMembershipImg from '../assets/images/resource/lgMembershipImg.png';
-import { ActivationMethodsPageMetas } from '../metadatas/metadats';
 
 const Container = styled.div`
   width: 100%;
@@ -40,7 +39,6 @@ const ActivationMethods = () => {
   const navigate = useNavigate();
   return (
     <>
-      <ActivationMethodsPageMetas />
       <Container $isMobile={isMobile}>
         <Content $isMobile={isMobile} onClick={() => navigate('/activation-method/KT')}>
           <SubTitle $isMobile={isMobile}>앤텔레콤 멤버십 K망 개통방법</SubTitle>

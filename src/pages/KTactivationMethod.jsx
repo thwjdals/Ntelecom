@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
 import kt_activation from '../assets/images/content/kt_activation.jpg';
 import { KT_APP_STORE_LINK_LIST } from '../constant/appStoreLinktList';
-import { KTactivationMethodPageMetas } from '../metadatas/metadats';
 
 const Container = styled.div`
   width: 100%;
@@ -51,7 +50,6 @@ const KTactivationMethod = () => {
 
   return (
     <>
-      <KTactivationMethodPageMetas />
       <Container $isMobile={isMobile}>
         <ButtonWrapper $isMobile={isMobile}>
           {KT_APP_STORE_LINK_LIST.map(item => (

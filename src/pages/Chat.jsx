@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
 import callImg from '../assets/images/resource/callImg.png';
 import kakaoChannelChatImg from '../assets/images/resource/kakaoChannelChatImg.png';
-import { ChatPageMetas } from '../metadatas/metadats';
 
 const Container = styled.div`
   width: 100%;
@@ -38,7 +37,6 @@ const Chat = () => {
 
   return (
     <>
-      <ChatPageMetas />
       <Container $isMobile={isMobile}>
         <Content $isMobile={isMobile} onClick={() => window.open('https://pf.kakao.com/_XpAvK')}>
           <KakaoImg $isMobile={isMobile} src={kakaoChannelChatImg} alt="카카오톡연결"></KakaoImg>

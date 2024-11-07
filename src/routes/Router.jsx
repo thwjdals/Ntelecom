@@ -1,14 +1,18 @@
 import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
-const Layout = lazy(() => import('../components/Layout'));
-const KTpaymentsystem = lazy(() => import('../pages/KTpaymentsystem'));
-const LGpaymentsystem = lazy(() => import('../pages/LGpaymentsystem'));
-const ActivationMethods = lazy(() => import('../pages/ActivationMethods'));
-const KTactivationMethod = lazy(() => import('../pages/KTactivationMethod'));
-const LGactivationMethod = lazy(() => import('../pages/LGactivationMethod'));
-const Main = lazy(() => import('../pages/Main'));
-const Chat = lazy(() => import('../pages/Chat'));
+const Layout = lazy(() => import(/* webpackChunkName: "Layout" */ '../components/Layout'));
+const KTpaymentsystem = lazy(() => import(/* webpackChunkName: "KTpaymentsystem" */ '../pages/KTpaymentsystem'));
+const LGpaymentsystem = lazy(() => import(/* webpackChunkName: "LGpaymentsystem" */ '../pages/LGpaymentsystem'));
+const ActivationMethods = lazy(() => import(/* webpackChunkName: "ActivationMethods" */ '../pages/ActivationMethods'));
+const KTactivationMethod = lazy(
+  () => import(/* webpackChunkName: "KTactivationMethod" */ '../pages/KTactivationMethod'),
+);
+const LGactivationMethod = lazy(
+  () => import(/* webpackChunkName: "LGactivationMethod" */ '../pages/LGactivationMethod'),
+);
+const Main = lazy(() => import(/* webpackChunkName: "Main" */ '../pages/Main'));
+const Chat = lazy(() => import(/* webpackChunkName: "Chat" */ '../pages/Chat'));
 
 const router = createBrowserRouter([
   {

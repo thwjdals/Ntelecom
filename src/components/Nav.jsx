@@ -66,7 +66,7 @@ const DrawerAppBar = props => {
       <List>
         {NAV_LIST.map(item => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton href={item.path} sx={{ textAlign: 'center' }}>
+            <ListItemButton onClick={() => navigate(item.path)} sx={{ textAlign: 'center' }}>
               <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>

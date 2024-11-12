@@ -2,23 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import bannerTitleImg from '../assets/images/banner/bannerTitleImg.png';
 import bannerCellphoneImg from '../assets/images/banner/bannerCellphoneImg.png';
-import mobileBackgroundImg from '../assets/images/banner/mobileBackgroundImg.png';
+import mobileBackgroundImg from '../assets/images/banner/mobile_background.png';
 import BANNER_BUTTON_LIST from '../constant/bannerButtonList';
 import { useNavigate } from 'react-router';
-import useViewport from '../hooks/useViewPort';
+import PriorContent from '../assets/images/banner/사전승낙_효진.png'
 
 const Content = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: ${props => (props.$isMobile ? 'column' : 'row')};
   justify-content: center;
   max-width: 1200px;
 `;
 
 const ImgWrapper = styled.div`
+position: relative;
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
 `;
@@ -34,7 +35,7 @@ const ButtonWrapper = styled.div`
   gap: 15px;
   z-index: 3;
   flex: 1;
-  bottom: ${props => (props.$isMobile ? '15%' : '35%')};
+  bottom: ${props => (props.$isMobile ? '7.5%' : '35%')};
   padding: 0 20px;
 `;
 
@@ -63,6 +64,19 @@ const ImgButton = styled.img`
   width: 100%;
   flex: 1;
 `;
+const TitleText = styled.div`
+  position: absolute;
+  font-size: 40px;
+  top: 30px;
+  left: 30px;
+`;
+const ContentText = styled.div`
+  position: absolute;
+  font-size: 20px;
+  top: 80px;
+  left: 30px;
+`;
+
 const Banner = ({ isMobile, isLoaded }) => {
   const navigate = useNavigate();
 
@@ -79,9 +93,8 @@ const Banner = ({ isMobile, isLoaded }) => {
         {isMobile && (
           <ImgWrapper $isMobile={isMobile}>
             <MobileBackgroundImg src={mobileBackgroundImg} $isMobile={isMobile} />
-          </ImgWrapper>
-        )}
-
+            <TitleText>앤텔레콤</TitleText>
+            <ContentText>온라인 개통 센터</ContentText>
         <ButtonWrapper $isMobile={isMobile}>
           {BANNER_BUTTON_LIST?.map(item => (
             <a key={item.src} href={item.href ? item.href : null}>
@@ -94,6 +107,14 @@ const Banner = ({ isMobile, isLoaded }) => {
             </a>
           ))}
         </ButtonWrapper>
+          </ImgWrapper>
+        )}
+
+        {isMobile && (
+          <ImgWrapper $isMobile={isMobile}>
+            <MobileBackgroundImg src={PriorContent} $isMobile={isMobile} />
+          </ImgWrapper>
+        )}
       </Content>
     )
   );

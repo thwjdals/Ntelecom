@@ -38,6 +38,7 @@ const Layout = () => {
           src={kakaoChannelChatBtnImg}
           alt="상담톡"
           onClick={() => window.open('https://pf.kakao.com/_XpAvK')}
+          // onClick={() => window.open('http://pf.kakao.com/_kxhmxjC')}
         />
       ) : null}
       <Footer />

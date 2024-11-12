@@ -14,6 +14,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   gap: 10px;
+  margin-top: 10px;
   margin-bottom: 8px;
   align-items: center;
 `;
@@ -29,7 +30,7 @@ const Footer = () => {
       <Wrapper>
         <span>앤텔레콤 셀프개통</span>
         <Bar $isMobile={isMobile} />
-        <span>010-4419-4451</span>
+        <span>010-4494-6556</span>
         <Bar $isMobile={isMobile} />
         <span>대표 임효진</span>
       </Wrapper>

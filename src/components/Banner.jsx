@@ -6,6 +6,7 @@ import mobileBackgroundImg from '../assets/images/banner/mobile_background.png';
 import BANNER_BUTTON_LIST from '../constant/bannerButtonList';
 import { useNavigate } from 'react-router';
 import PriorContent from '../assets/images/banner/사전승낙_효진.png'
+// import PriorContent from '../assets/images/banner/사전승낙_여진.png'
 
 const Content = styled.div`
   position: relative;

@@ -31,8 +31,10 @@ const Footer = () => {
         <span>앤텔레콤 셀프개통</span>
         <Bar $isMobile={isMobile} />
         <span>010-4494-6556</span>
+        {/* <span>010-9610-3434</span> */}
         <Bar $isMobile={isMobile} />
         <span>대표 임효진</span>
+        {/* <span>대표 임여진</span> */}
       </Wrapper>
     </Container>
   );

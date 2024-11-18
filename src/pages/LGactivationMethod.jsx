@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
+// 환경변수
 import lg_activation from '../assets/images/content/lg_activation.jpg';
+// import lg_activation from '../assets/images/content/lg_activation_yeo.jpg';
 import { LG_APP_STORE_LINK_LIST } from '../constant/appStoreLinktList';
 
 const Container = styled.div`

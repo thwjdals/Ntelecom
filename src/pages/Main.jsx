@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: ${props => (props.$isMobile ? '100%' : '100vh')};
+  height: ${props => (props.$isMobile ? '100%' : 'fit-content')};
 `;
 
 const Main = () => {

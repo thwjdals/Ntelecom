@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
+// 환경변수
 import kt_activation from '../assets/images/content/kt_activation.jpg';
+// import kt_activation from '../assets/images/content/kt_activation_yeo.jpg';
 import { KT_APP_STORE_LINK_LIST } from '../constant/appStoreLinktList';
 
 const Container = styled.div`

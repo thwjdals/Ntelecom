@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import useViewport from '../hooks/useViewPort';
+// 환경변수
 import callImg from '../assets/images/resource/callImg.png';
+// import callImg from '../assets/images/resource/callImg_여진.png';
 import kakaoChannelChatImg from '../assets/images/resource/kakaoChannelChatImg.png';
 
 const Container = styled.div`
@@ -38,10 +40,16 @@ const Chat = () => {
   return (
     <>
       <Container $isMobile={isMobile}>
+        {
+          // 환경변수
+        }
         <Content $isMobile={isMobile} onClick={() => window.open('https://pf.kakao.com/_XpAvK')}>
         {/* <Content $isMobile={isMobile} onClick={() => window.open('https://pf.kakao.com/_kxhmxjC')}> */}
           <KakaoImg $isMobile={isMobile} src={kakaoChannelChatImg} alt="카카오톡연결"></KakaoImg>
         </Content>
+        {
+          // 환경변수
+        }
         <a href="tel:010-4494-6556">
         {/* <a href="tel:010-9610-3434"> */}
           <Content $isMobile={isMobile}>

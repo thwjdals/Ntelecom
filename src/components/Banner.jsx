@@ -5,8 +5,9 @@ import bannerCellphoneImg from '../assets/images/banner/bannerCellphoneImg.png';
 import mobileBackgroundImg from '../assets/images/banner/mobile_background.png';
 import BANNER_BUTTON_LIST from '../constant/bannerButtonList';
 import { useNavigate } from 'react-router';
+// 환경변수
 import PriorContent from '../assets/images/banner/사전승낙_효진.png'
-// import PriorContent from '../assets/images/banner/사전승낙_여진.png'
+// import PriorContent from '../assets/images/banner/사전승낙_여진.jpg';
 
 const Content = styled.div`
   position: relative;
@@ -18,8 +19,16 @@ const Content = styled.div`
   max-width: 1200px;
 `;
 
+const Container = styled.div`
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const ImgWrapper = styled.div`
-position: relative;
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -49,9 +58,8 @@ const Title = styled.img`
 `;
 
 const BannerCellphoneImg = styled.img`
-  position: absolute;
   width: 520px;
-  right: 0;
+  margin-right: -520px;
   z-index: 1;
 `;
 
@@ -85,10 +93,13 @@ const Banner = ({ isMobile, isLoaded }) => {
     isLoaded && (
       <Content $isMobile={isMobile}>
         {!isMobile && (
-          <ImgWrapper $isMobile={isMobile}>
-            <Title src={bannerTitleImg} alt={'title'} $isMobile={isMobile} />
-            <BannerCellphoneImg src={bannerCellphoneImg} $isMobile={isMobile} />
-          </ImgWrapper>
+          <Container>
+            <ImgWrapper $isMobile={isMobile}>
+              <Title src={bannerTitleImg} alt={'title'} $isMobile={isMobile} />
+              <BannerCellphoneImg src={bannerCellphoneImg} $isMobile={isMobile} />
+            </ImgWrapper>
+            <img src={PriorContent} $isMobile={isMobile} />
+          </Container>
         )}
 
         {isMobile && (
@@ -96,18 +107,18 @@ const Banner = ({ isMobile, isLoaded }) => {
             <MobileBackgroundImg src={mobileBackgroundImg} $isMobile={isMobile} />
             <TitleText>앤텔레콤</TitleText>
             <ContentText>온라인 개통 센터</ContentText>
-        <ButtonWrapper $isMobile={isMobile}>
-          {BANNER_BUTTON_LIST?.map(item => (
-            <a key={item.src} href={item.href ? item.href : null}>
-              <ImgButton
-                key={item.href}
-                src={item.src}
-                alt={item.alt}
-                onClick={item.handleOnClick ? item.handleOnClick : () => navigate(item.path)}
-              />
-            </a>
-          ))}
-        </ButtonWrapper>
+            <ButtonWrapper $isMobile={isMobile}>
+              {BANNER_BUTTON_LIST?.map(item => (
+                <a key={item.src} href={item.href ? item.href : null}>
+                  <ImgButton
+                    key={item.href}
+                    src={item.src}
+                    alt={item.alt}
+                    onClick={item.handleOnClick ? item.handleOnClick : () => navigate(item.path)}
+                  />
+                </a>
+              ))}
+            </ButtonWrapper>
           </ImgWrapper>
         )}
 

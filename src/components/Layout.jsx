@@ -17,7 +17,7 @@ const Content = styled.div`
   width: 100%;
   margin: auto;
 `;
-const KakaoChatImg = styled.img`
+const KakaoChatImg = styled.img`rh
   position: fixed;
   z-index: 999;
   right: 20px;
@@ -37,6 +37,7 @@ const Layout = () => {
         <KakaoChatImg
           src={kakaoChannelChatBtnImg}
           alt="상담톡"
+          // 환경변수
           onClick={() => window.open('https://pf.kakao.com/_XpAvK')}
           // onClick={() => window.open('http://pf.kakao.com/_kxhmxjC')}
         />

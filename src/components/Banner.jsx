@@ -6,7 +6,7 @@ import mobileBackgroundImg from '../assets/images/banner/mobile_background.png';
 import BANNER_BUTTON_LIST from '../constant/bannerButtonList';
 import { useNavigate } from 'react-router';
 // 환경변수
-import PriorContent from '../assets/images/banner/사전승낙_효진.png'
+import PriorContent from '../assets/images/banner/사전승낙_효진.png';
 // import PriorContent from '../assets/images/banner/사전승낙_여진.jpg';
 
 const Content = styled.div`
@@ -45,7 +45,7 @@ const ButtonWrapper = styled.div`
   gap: 15px;
   z-index: 3;
   flex: 1;
-  bottom: ${props => (props.$isMobile ? '7.5%' : '35%')};
+  bottom: ${props => (props.$isMobile ? '7.5%' : '25%')}; /* 위치 수정 */
   padding: 0 20px;
 `;
 
@@ -67,18 +67,21 @@ const MobileBackgroundImg = styled.img`
   width: 100%;
   height: auto;
 `;
+
 const ImgButton = styled.img`
   max-width: 300px;
   min-width: 175px;
   width: 100%;
   flex: 1;
 `;
+
 const TitleText = styled.div`
   position: absolute;
   font-size: 40px;
   top: 30px;
   left: 30px;
 `;
+
 const ContentText = styled.div`
   position: absolute;
   font-size: 20px;
@@ -97,6 +100,19 @@ const Banner = ({ isMobile, isLoaded }) => {
             <ImgWrapper $isMobile={isMobile}>
               <Title src={bannerTitleImg} alt={'title'} $isMobile={isMobile} />
               <BannerCellphoneImg src={bannerCellphoneImg} $isMobile={isMobile} />
+
+              <ButtonWrapper $isMobile={isMobile}>
+                {BANNER_BUTTON_LIST?.map(item => (
+                  <a key={item.src} href={item.href ? item.href : null}>
+                    <ImgButton
+                      key={item.href}
+                      src={item.src}
+                      alt={item.alt}
+                      onClick={item.handleOnClick ? item.handleOnClick : () => navigate(item.path)}
+                    />
+                  </a>
+                ))}
+              </ButtonWrapper>
             </ImgWrapper>
             <img src={PriorContent} $isMobile={isMobile} />
           </Container>
@@ -119,12 +135,6 @@ const Banner = ({ isMobile, isLoaded }) => {
                 </a>
               ))}
             </ButtonWrapper>
-          </ImgWrapper>
-        )}
-
-        {isMobile && (
-          <ImgWrapper $isMobile={isMobile}>
-            <MobileBackgroundImg src={PriorContent} $isMobile={isMobile} />
           </ImgWrapper>
         )}
       </Content>

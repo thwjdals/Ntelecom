@@ -17,7 +17,7 @@ const Content = styled.div`
   width: 100%;
   margin: auto;
 `;
-const KakaoChatImg = styled.img`rh
+const KakaoChatImg = styled.img`
   position: fixed;
   z-index: 999;
   right: 20px;

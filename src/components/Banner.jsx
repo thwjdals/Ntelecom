@@ -45,7 +45,7 @@ const ButtonWrapper = styled.div`
   gap: 15px;
   z-index: 3;
   flex: 1;
-  bottom: ${props => (props.$isMobile ? '7.5%' : '35%')};
+  bottom: ${props => (props.$isMobile ? '7.5%' : '25%')}; /* 위치 수정 */
   padding: 0 20px;
 `;
 
@@ -67,6 +67,7 @@ const MobileBackgroundImg = styled.img`
   width: 100%;
   height: auto;
 `;
+
 const ImgButton = styled.img`
   max-width: 300px;
   min-width: 175px;
@@ -97,6 +98,19 @@ const Banner = ({ isMobile, isLoaded }) => {
             <ImgWrapper $isMobile={isMobile}>
               <Title src={bannerTitleImg} alt={'title'} $isMobile={isMobile} />
               <BannerCellphoneImg src={bannerCellphoneImg} $isMobile={isMobile} />
+
+              <ButtonWrapper $isMobile={isMobile}>
+                {BANNER_BUTTON_LIST?.map(item => (
+                  <a key={item.src} href={item.href ? item.href : null}>
+                    <ImgButton
+                      key={item.href}
+                      src={item.src}
+                      alt={item.alt}
+                      onClick={item.handleOnClick ? item.handleOnClick : () => navigate(item.path)}
+                    />
+                  </a>
+                ))}
+              </ButtonWrapper>
             </ImgWrapper>
             <img src={PriorContent} $isMobile={isMobile} />
           </Container>
@@ -122,11 +136,7 @@ const Banner = ({ isMobile, isLoaded }) => {
           </ImgWrapper>
         )}
 
-        {isMobile && (
-          <ImgWrapper $isMobile={isMobile}>
-            <MobileBackgroundImg src={PriorContent} $isMobile={isMobile} />
-          </ImgWrapper>
-        )}
+        {isMobile && <img src={PriorContent} $isMobile={isMobile} />}
       </Content>
     )
   );
